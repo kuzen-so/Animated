@@ -1,7 +1,8 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: [
+  extends: ["airbnb",
+        "plugin:prettier/recommended",
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
