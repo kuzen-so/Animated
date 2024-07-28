@@ -4,12 +4,12 @@ import Navbar from "./components/navbar/Navbar";
 
 const App = () => {
   return <div>
-    <section><Navbar /></section>
-    <section>Parallax</section>
-    <section>Portfolio1</section>
-    <section>Portfolio2</section>
-    <section>Portfolio3</section>
-    <section>Contact</section>
+    <section id="主页"><Navbar /></section>
+    <section id="博客">Parallax</section>
+    <section id="项目">Portfolio1</section>
+    <section id="留言">Portfolio2</section>
+    {/* <section id="homepage">Portfolio3</section> */}
+    <section id="关于">Contact</section>
     {/* <Test />
     <Test /> */}
   </div>
