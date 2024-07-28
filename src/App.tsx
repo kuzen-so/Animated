@@ -1,5 +1,6 @@
 import "./app.scss"
 
+
 const App = () => {
   return <div>
     <section>Hero</section>
