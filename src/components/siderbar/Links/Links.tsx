@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion'
-
+// 定义链接
 const variants = {
   open:{
     transition: {
@@ -25,15 +25,17 @@ const itemVariants = {
   }
 }
 
-
+// 定义链接
 const Links = () => {
-
-
-    const items = ["主页",  "博客","项目","留言", "关于"];
+    const items = ["主页","博客","项目","留言", "关于"];
   return (
-    <motion.div className="links" variants={variants}>{items.map((item)=>(<motion.a href={`#${item}`} key={item} variants={itemVariants}
-    whileHover={{scale:1.2}}
-    whileTap={{scale:0.9}}
+    <motion.div className="links" 
+    variants={variants}
+    >
+    {items.map((item)=>(<motion.a href={`#${item}`} key={item} 
+      variants={itemVariants}
+      whileHover={{scale:1.2}}
+      whileTap={{scale:0.9}}
     >{item}</motion.a>))}</motion.div>
   )
 }
