@@ -12,6 +12,7 @@ const Parallax = ({ type }: { type: "services" | "portfolio" }) => {
 
     const yBg = useTransform(scrollYProgress,[0,1],["0%", "100%"])
     const yText = useTransform(scrollYProgress, [0, 1], ["0%", "500%"])
+    // const backgroundImage = type === "services" ? "/planets.png" : "/Sun.png"
 
   return (
     <div className="parallax"
@@ -23,12 +24,18 @@ const Parallax = ({ type }: { type: "services" | "portfolio" }) => {
             : "linear-gradient(180deg, #111132,#505064)"
         }}
     >
-        <motion.h1 style={{y:yText}}>{type==="services" ? "what We Do?" : "What We Did?"}</motion.h1>
+        <motion.h1 style={{y:yText}}>
+            {type==="services" ? "what We Do?" : "What We Did?"}
+        </motion.h1>
         <motion.div className="mountains"></motion.div>
         <motion.div className="planets"
-        style={{y:yBg}}
-        ></motion.div>
-        <motion.div className="starts"
+        style={{
+            y:yBg,
+            // backgroundImage: `url(${backgroundImage})`,
+        }}
+        >
+        </motion.div>
+        <motion.div className="stars"
          style={{x:yBg}}
         ></motion.div>
     </div>
