@@ -1,1 +1,1 @@
-本项目采用主要使用vite + ts + react 完成搭建.项目搭建地址[动画网页](https://animated-e199-9kne4gi3u-chumenlus-projects.vercel.app/)
+本项目采用主要使用vite + ts + react + motion 完成搭建.项目搭建地址[demo](https://animated-e199-9kne4gi3u-chumenlus-projects.vercel.app/)
