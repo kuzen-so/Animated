@@ -4,6 +4,7 @@ import Hero from "./components/hero/Hero";
 import Parallax from "./components/parallax/Parallax";
 import Services from "./components/services/Services";
 import Portfolio from "./components/portfolio/Portfolio";
+import Contact from "./components/contact/Contact";
 // import Test from "./Test.tsx";
 
 const App = () => {
@@ -19,9 +20,9 @@ const App = () => {
       <Services />
     </section>
     <Portfolio />
-    <section id="留言">Portfolio2</section>
+    {/* <section id="留言">Portfolio2</section> */}
     {/* <section id="homepage">Portfolio3</section> */}
-    <section id="关于">Contact</section>
+    <section id="关于"><Contact/></section>
     {/* <Test />
     <Test /> */}
   </div>
