@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import "./Services.scss";
 
+// Define the variants for animation
 const variants = {
   initial: { x: -500, y: 100, opacity: 0 },
   animate: {
@@ -12,17 +13,24 @@ const variants = {
   }
 };
 
-const Services = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-100px" });
+// Define types for the BoxContent props
+interface BoxContentProps {
+  title: string;
+  content: string;
+}
 
-  const BoxContent = ({ title, content }) => (
-    <motion.div className="box" whileHover={{ background: "lightgray", color: "black" }}>
-      <h2>{title}</h2>
-      <p>{content}</p>
-      <button>Go</button>
-    </motion.div>
-  );
+// BoxContent component
+const BoxContent: React.FC<BoxContentProps> = ({ title, content }) => (
+  <motion.div className="box" whileHover={{ background: "lightgray", color: "black" }}>
+    <h2>{title}</h2>
+    <p>{content}</p>
+    <button>Go</button>
+  </motion.div>
+);
+
+const Services: React.FC = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref, { margin: "-100px" });
 
   return (
     <motion.div

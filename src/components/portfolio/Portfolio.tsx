@@ -2,7 +2,14 @@ import "./Portfolio.scss"
 import { motion, useScroll, useSpring, useTransform } from "framer-motion"
 import { useRef } from "react"
 
-const items = [
+interface Item {
+    id: number;
+    title: string;
+    img: string;
+    desc: string;
+}
+
+const items: Item[] = [
     {
         id: 1,
         title: "项目1",
@@ -29,12 +36,12 @@ const items = [
     }
 ]
 
-const Single = ({ item }) => {
-    const ref = useRef();
+const Single: React.FC<{ item: Item }> = ({ item }) => {
+    const ref = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({
         target: ref,
-        // offset: [ "start start","end start"]
+        // offset: ["start start", "end start"]
     })
 
     const y = useTransform(scrollYProgress, [0, 1], [-300, 300])
@@ -42,27 +49,23 @@ const Single = ({ item }) => {
     return (
         <section ref={ref}>
             <div className="container">
-
                 <div className="wrapper">
-               <div className="imageContainer" ref={ref}>
-
-               <img src={item.img} alt="" />
-               </div>
-               
-                <motion.div className="textContainer" style={{ y }}>
-                    <h2>{item.title}</h2>
-                    <p>{item.desc}</p>
-                    <button>See Demo</button>
-                </motion.div>
+                    <div className="imageContainer" ref={ref}>
+                        <img src={item.img} alt={item.title} />
+                    </div>
+                    <motion.div className="textContainer" style={{ y }}>
+                        <h2>{item.title}</h2>
+                        <p>{item.desc}</p>
+                        <button>See Demo</button>
+                    </motion.div>
                 </div>
             </div>
-           
         </section>
     )
 }
 
-const Portfolio = () => {
-    const ref = useRef()
+const Portfolio: React.FC = () => {
+    const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["end end", "start start"]
@@ -70,7 +73,7 @@ const Portfolio = () => {
     const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
 
     return (
-        <div className="Portfolio">
+        <div className="Portfolio" ref={ref}>
             <div className="progress">
                 <h1>Featured Works</h1>
                 <motion.div style={{ scaleX }} className="progressBar"></motion.div>
